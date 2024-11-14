@@ -8,20 +8,14 @@
     ../../modules/user.nix
   ];
 
-  adminUser.enable = true;
-  adminUser.name = "plumps";
-
-  services.qemuGuest.enable = true;
-
-  services.vscode-server.enable = true;
-
   networking = {
     hostName = "marco";
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
-    interfaces.ens3.useDHCP = true; 
+    interfaces.ens3.useDHCP = true;
   };
+
+  services.qemuGuest.enable = true;
 
   system.stateVersion = "23.11";
 
-  time.timeZone = "Europe/Berlin";
 }

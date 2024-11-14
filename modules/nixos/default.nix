@@ -5,6 +5,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  adminUser = {
+    enable = true;
+    name = "plumps";
+  };
+
   programs = {
     command-not-found.enable = false;
     neovim = {
@@ -14,12 +19,17 @@
     };
   };
 
-  services = { openssh.enable = true; };
+  services = {
+    openssh.enable = true;
+    vscode-server.enable = true;
+  };
 
   # enable sudo - passwordless -
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
   };
+
+  time.timeZone = "Europe/Berlin";
 
 }
