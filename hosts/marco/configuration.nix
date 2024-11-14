@@ -8,9 +8,8 @@
     ../../modules/user.nix
   ];
 
-  environment.systemPackages = with pkgs; [ tailscale ];
-
   adminUser.enable = true;
+  adminUser.name = "plumps";
 
   services.qemuGuest.enable = true;
 

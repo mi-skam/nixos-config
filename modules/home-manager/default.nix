@@ -4,12 +4,30 @@ let
   name = "mi-skam";
   user = "plumps";
   email = "40042054+mi-skam@users.noreply.github.com";
-  home = builtins.getEnv "HOME";
+  home =  if pkgs.stdenv.isDarwin then /Users/${user}
+          else /home/${user};
 
 in {
-  home.packages = with pkgs; [ nixfmt-classic htop btop ];
+  home = {
+    username = user;
+    homeDirectory = lib.mkDefault home;
+
+    packages = with pkgs; [ nixfmt-classic htop btop ];
+    
+    # This value determines the Home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new Home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update Home Manager without changing this value. See
+    # the Home Manager release notes for a list of state version
+    # changes in each release.
+    stateVersion = "24.05";
+  }; 
 
   programs = {
+    home-manager.enable = true;
+
     # Shared shell configuration
     direnv = {
       enable = true;
@@ -169,7 +187,7 @@ in {
 
     ssh = {
       enable = true;
-      includes = map (path: "${home}/${path}") [
+      includes = map (path: "${(builtins.toString home)}/${path}") [
         ".ssh/config"
         ".ssh/pme/config"
         ".ssh/tadda/config"
