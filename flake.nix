@@ -15,47 +15,45 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-      nixosConfigurations = {
+    nixosConfigurations = {
 
       "marco" = nixpkgs.lib.nixosSystem {
-  
+
         system = "x86_64-linux";
 
-        modules =  [
+        modules = [
           ./hosts/marco/configuration.nix
           inputs.vscode-server.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager {
+          inputs.home-manager.nixosModules.home-manager
+          {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "disabled";
-              users = {
-                "plumps" = import ./hosts/marco/home.nix;
-              };
+              users = { "plumps" = import ./hosts/marco/home.nix; };
             };
           }
         ];
       };
 
-    "kudos" = nixpkgs.lib.nixosSystem {
+      "kudos" = nixpkgs.lib.nixosSystem {
 
-      system = "aarch64-linux";
+        system = "aarch64-linux";
 
-      modules = [
-        ./hosts/kudos/configuration.nix
-        inputs.vscode-server.nixosModules.default
-        inputs.home-manager.nixosModules.home-manager {
+        modules = [
+          ./hosts/kudos/configuration.nix
+          inputs.vscode-server.nixosModules.default
+          inputs.home-manager.nixosModules.home-manager
+          {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "disabled";
-              users = {
-                "plumps" = import ./hosts/kudos/home.nix;
-              };
+              users = { "plumps" = import ./hosts/kudos/home.nix; };
             };
           }
         ];
       };
-    };        
+    };
   };
 }

@@ -4,8 +4,7 @@ let
   name = "mi-skam";
   user = "plumps";
   email = "40042054+mi-skam@users.noreply.github.com";
-  home =  if pkgs.stdenv.isDarwin then /Users/${user}
-          else /home/${user};
+  home = if pkgs.stdenv.isDarwin then /Users/${user} else /home/${user};
 
 in {
   home = {
@@ -13,7 +12,7 @@ in {
     homeDirectory = lib.mkDefault home;
 
     packages = with pkgs; [ nixfmt-classic htop btop ];
-    
+
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
     # when a new Home Manager release introduces backwards
@@ -23,7 +22,7 @@ in {
     # the Home Manager release notes for a list of state version
     # changes in each release.
     stateVersion = "24.05";
-  }; 
+  };
 
   programs = {
     home-manager.enable = true;

@@ -33,9 +33,7 @@ in {
           auth-type = "htpasswd.default";
           acct-type = "unix";
         };
-        htpasswd.default = {
-          htpasswd = "/etc/htpasswd";
-        };
+        htpasswd.default = { htpasswd = "/etc/htpasswd"; };
 
         location = [
           {

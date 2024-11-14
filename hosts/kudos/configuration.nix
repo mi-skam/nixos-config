@@ -10,11 +10,13 @@
   adminUser.enable = true;
   adminUser.name = "plumps";
 
+  services.vscode-server.enable = true;
+
   # Interface is this on my M1
   networking = {
     hostName = "kudos";
     interfaces.enp0s1.useDHCP = true;
-    
+
     firewall.enable = false;
   };
 

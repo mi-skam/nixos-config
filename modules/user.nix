@@ -1,12 +1,9 @@
-{ lib, config, pkgs, ...}:
+{ lib, config, pkgs, ... }:
 
-let
-  cfg = config.adminUser;
-in
-{
+let cfg = config.adminUser;
+in {
   options = {
-    adminUser.enable =
-      lib.mkEnableOption "enable adminUser module";
+    adminUser.enable = lib.mkEnableOption "enable adminUser module";
 
     adminUser.name = lib.mkOption {
       default = "admin";
@@ -15,17 +12,17 @@ in
       '';
     };
   };
-  
+
   config = lib.mkIf cfg.enable {
     programs.fish.enable = true;
-    
+
     users = {
       mutableUsers = false;
       users.${cfg.name} = {
         isNormalUser = true;
         extraGroups = [ "video" "wheel" ];
         hashedPassword =
-        "$y$j9T$r0JcxhNB3XBJF6G.clp3T/$j9Xq5CCtzsPB9ApR/uDBfuKxEYo6qHbHJ0WAag30E/6";
+          "$y$j9T$r0JcxhNB3XBJF6G.clp3T/$j9Xq5CCtzsPB9ApR/uDBfuKxEYo6qHbHJ0WAag30E/6";
         description = "admin user";
         uid = 1000;
         openssh.authorizedKeys.keys = [

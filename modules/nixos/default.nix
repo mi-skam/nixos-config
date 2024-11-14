@@ -1,5 +1,5 @@
- { config, pkgs, lib, ... }: {
-  
+{ config, pkgs, lib, ... }: {
+
   # global package list
   environment.systemPackages = with pkgs; [ neovim ];
 
