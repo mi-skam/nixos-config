@@ -18,7 +18,7 @@
   networking = {
     hostName = "marco";
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
-    networkmanager.enable = true;
+    interfaces.ens3.useDHCP = true; 
   };
 
   system.stateVersion = "23.11";
