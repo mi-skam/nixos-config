@@ -1,12 +1,18 @@
 { config, pkgs, lib, ... }: {
 
-  # global package list
-  environment.systemPackages = with pkgs; [ neovim ];
-
   # needed for flakes support
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config.allowUnfree = true;
+
+  programs = {
+    command-not-found.enable = false;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      vimAlias = true;
+    };
+  };
 
   services = { openssh.enable = true; };
 

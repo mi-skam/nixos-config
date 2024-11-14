@@ -11,7 +11,7 @@ in {
     username = user;
     homeDirectory = lib.mkDefault home;
 
-    packages = with pkgs; [ nixfmt-classic htop btop ];
+    packages = with pkgs; [ nixfmt-classic htop btop sqlite ];
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -28,6 +28,15 @@ in {
     home-manager.enable = true;
 
     # Shared shell configuration
+    bash = {
+      enable = true;
+      initExtra = ''
+        if command -v fish > /dev/null 2>&1; then
+          exec fish
+        fi
+      '';
+    };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -82,10 +91,7 @@ in {
       };
     };
 
-    zellij = {
-      enable = true;
-      enableFishIntegration = true;
-    };
+    zellij = { enable = true; };
 
     zoxide = {
       enable = true;
@@ -116,8 +122,6 @@ in {
         set -x PATH $HOME/.local/bin $PATH
         set -x PATH $HOME/.deno/bin $PATH
         set -x PATH $HOME/go/bin $PATH
-
-        zellij attach -b -c default 2>/dev/null # background start
 
         if test -z "$SSH_ENV"
             set -xg SSH_ENV $HOME/.ssh/environment
