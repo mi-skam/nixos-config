@@ -118,13 +118,7 @@ in {
         set -x PATH $HOME/.deno/bin $PATH
         set -x PATH $HOME/go/bin $PATH
 
-        if not set -q ZELLIJ
-          if test "$ZELLIJ_AUTO_ATTACH" = "true"
-            zellij attach -c default
-          else
-            zellij attach -b -c default 2>/dev/null # background start
-          end
-        end
+        zellij attach -b -c default 2>/dev/null # background start
 
         if test -z "$SSH_ENV"
             set -xg SSH_ENV $HOME/.ssh/environment
