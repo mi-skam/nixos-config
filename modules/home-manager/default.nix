@@ -11,7 +11,7 @@ in {
     username = user;
     homeDirectory = lib.mkDefault home;
 
-    packages = with pkgs; [ nixfmt-classic htop btop sqlite ];
+    packages = with pkgs; [ nixfmt-classic htop btop file ];
 
     file.zellij = {
       target = ".config/zellij/config.kdl";
