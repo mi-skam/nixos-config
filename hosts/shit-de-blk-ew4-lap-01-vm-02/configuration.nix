@@ -8,7 +8,7 @@
   ];
 
   networking = {
-    hostName = "kudos";
+    hostName = "shit-de-blk-ew4-lap-01-vm-02";
     interfaces.enp0s1.useDHCP = true;
 
     firewall.enable = false;

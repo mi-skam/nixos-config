@@ -11,7 +11,7 @@ NIXOS_USER ?= plumps
 MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 
 # The name of the nixosConfiguration in the flake
-NIXOS_NAME ?= kudos
+NIXOS_NAME ?= shit-de-blk-ew4-srv-01
 
 # SSH options that are used. These aren't meant to be overridden but are
 # reused a lot so we just store them up here.

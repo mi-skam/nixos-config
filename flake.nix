@@ -36,7 +36,7 @@
         ];
       };
 
-      "kudos" = nixpkgs.lib.nixosSystem {
+      "shit-de-blk-ew4-lap-01-vm-02" = nixpkgs.lib.nixosSystem {
 
         system = "aarch64-linux";
 
@@ -49,7 +49,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "disabled";
-              users = { "plumps" = import ./hosts/kudos/home.nix; };
+              users = { "plumps" = import ./hosts/shit-de-blk-ew4-lap-01-vm-02/home.nix; };
             };
           }
         ];
