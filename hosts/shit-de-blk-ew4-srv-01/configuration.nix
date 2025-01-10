@@ -5,6 +5,7 @@
 
     ../../modules/nixos
     ../../modules/user
+    ../../modules/services/syncthing.nix
   ];
 
   networking = {
