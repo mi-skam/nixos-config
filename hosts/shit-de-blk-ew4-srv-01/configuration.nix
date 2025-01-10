@@ -4,11 +4,11 @@
     ./hardware-configuration.nix
 
     ../../modules/nixos
-    ../../modules/user.nix
+    ../../modules/user
   ];
 
   networking = {
-    hostName = "shit-de-blk-srv-01";
+    hostName = "shit-de-blk-ew4-srv-01";
     interfaces.enp0s31f6.useDHCP = true;
   };
 

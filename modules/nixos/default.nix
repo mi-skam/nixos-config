@@ -14,6 +14,7 @@
   environment.systemPackages = with pkgs; [
     wget
     htop
+    gnumake
   ];
 
   # Select internationalisation properties.

@@ -29,7 +29,7 @@ in {
           "$y$j9T$r0JcxhNB3XBJF6G.clp3T/$j9Xq5CCtzsPB9ApR/uDBfuKxEYo6qHbHJ0WAag30E/6";
         description = "admin user";
         uid = 1000;
-        openssh.authorizedKeys.keys = readKeysFromFile ./ssh.keys
+        openssh.authorizedKeys.keys = readKeysFromFile ./ssh.keys;
       };
     };
   };

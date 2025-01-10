@@ -2,9 +2,9 @@
   description = "my nixos-config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -17,12 +17,12 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
 
-      "marco" = nixpkgs.lib.nixosSystem {
+      "shit-de-blk-ew4-srv-01" = nixpkgs.lib.nixosSystem {
 
         system = "x86_64-linux";
 
         modules = [
-          ./hosts/marco/configuration.nix
+          ./hosts/shit-de-blk-ew4-srv-01/configuration.nix
           inputs.vscode-server.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           {
@@ -30,7 +30,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "disabled";
-              users = { "plumps" = import ./hosts/marco/home.nix; };
+              users = { "plumps" = import ./hosts/shit-de-blk-ew4-srv-01/home.nix; };
             };
           }
         ];

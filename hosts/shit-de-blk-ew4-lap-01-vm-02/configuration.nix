@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
 
     ../../modules/nixos
-    ../../modules/user.nix
+    ../../modules/user
 
   ];
 
